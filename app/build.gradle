@@ -64,6 +64,12 @@ android {
         ]
     }
 
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
     kapt {
         arguments {
             arg("AROUTER_MODULE_NAME", project.getName())
