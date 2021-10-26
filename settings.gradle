@@ -1,0 +1,19 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+    }
+}
+rootProject.name = "Fantasy"
+include ':app'
+include ':Common_Sdk'
+include ':Common_Service'
+include ':Common_Res'
+include ':module_home'
+include ':module_mine'

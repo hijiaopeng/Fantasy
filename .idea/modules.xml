@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Fantasy.iml" filepath="$PROJECT_DIR$/.idea/modules/Fantasy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Common_Res/Fantasy.Common_Res.iml" filepath="$PROJECT_DIR$/.idea/modules/Common_Res/Fantasy.Common_Res.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Common_Sdk/Fantasy.Common_Sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/Common_Sdk/Fantasy.Common_Sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Common_Service/Fantasy.Common_Service.iml" filepath="$PROJECT_DIR$/.idea/modules/Common_Service/Fantasy.Common_Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Fantasy.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Fantasy.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module_home/Fantasy.module_home.iml" filepath="$PROJECT_DIR$/.idea/modules/module_home/Fantasy.module_home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module_mine/Fantasy.module_mine.iml" filepath="$PROJECT_DIR$/.idea/modules/module_mine/Fantasy.module_mine.iml" />
+    </modules>
+  </component>
+</project>
