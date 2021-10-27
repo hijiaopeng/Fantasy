@@ -1,6 +1,7 @@
 package com.fantasy.common_sdk.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import com.fantasy.common_sdk.ext.getVmClazz
 import com.fantasy.common_sdk.ext.showLoadingExt
 import com.fantasy.common_sdk.network.manager.NetState
 import com.fantasy.common_sdk.network.manager.NetworkStateManager
+import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -60,14 +62,8 @@ abstract class BaseVMActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatA
         super.onCreate(savedInstanceState)
         mViewBinding = viewBinding()
         mViewModel = ViewModelProvider(this)[getVmClazz(this)]
-        mViewBinding.root.findViewById<Toolbar>(R.id.public_toolbar)?.let {
-            immersionBar {
-                titleBar(it)
-                statusBarDarkFont(true, 0.2f)
-                navigationBarColor(R.color.transparent)
-            }
-        }
         setContentView(mViewBinding.root)
+        initImmersionBar()
         mCoroutineScope = CoroutineScope(coroutineContext)
         ARouter.getInstance().inject(this)
         registerUiChange()
@@ -75,6 +71,24 @@ abstract class BaseVMActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatA
         createObserver()
         NetworkStateManager.instance.mNetworkStateCallback.observe(this) {
             onNetworkStateChanged(it)
+        }
+    }
+
+    /**
+     * 状态栏字体是否为黑色
+     */
+    open fun isDarkFont(): Boolean = true
+
+    /**
+     * 设置沉浸式
+     */
+    private fun initImmersionBar() {
+        mViewBinding.root.findViewById<View>(R.id.public_toolbar)?.let {
+            ImmersionBar.with(this)
+                .titleBar(it)
+                .statusBarDarkFont(isDarkFont(), 0.2f)
+                .navigationBarColor(R.color.transparent)
+                .init()
         }
     }
 

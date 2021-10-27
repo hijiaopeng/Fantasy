@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.text.Html
 import android.text.TextUtils
 import android.widget.TextView
+import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.ResourceUtils
 import com.blankj.utilcode.util.SizeUtils
 
@@ -102,12 +103,15 @@ fun TextView.text2StartImgAndText(
 fun TextView.text2EndImg(
     res: Int,
     bounds: Float = 16F,
-    padding: Float = 20F
+    padding: Float = 20F,
+    clearPadding: Boolean = false,
 ) {
     this.text = ""
     val drawable = ResourceUtils.getDrawable(res)
     drawable.setBounds(0, 0, SizeUtils.dp2px(bounds), SizeUtils.dp2px(bounds))
-    this.setPadding(SizeUtils.dp2px(padding), 0, SizeUtils.dp2px(padding), 0)
+    if (clearPadding) {
+        this.setPadding(SizeUtils.dp2px(padding), 0, 0, 0)
+    }
     this.setCompoundDrawables(null, null, drawable, null)
 }
 
@@ -117,11 +121,15 @@ fun TextView.text2EndImg(
 fun TextView.text2EndImgAndText(
     res: Int,
     text: String,
+    color: Int? = null,
     padding: Float = 20F,
     bounds: Float = 16F,
     drawablePadding: Float = 8F
 ) {
     this.text = text
+    color?.let {
+        this.setTextColor(ColorUtils.getColor(color))
+    }
     val drawable = ResourceUtils.getDrawable(res)
     drawable.setBounds(0, 0, SizeUtils.dp2px(bounds), SizeUtils.dp2px(bounds))
     this.setPadding(SizeUtils.dp2px(padding), 0, SizeUtils.dp2px(padding), 0)
@@ -135,11 +143,15 @@ fun TextView.text2EndImgAndText(
 fun TextView.text2EndImgAndText(
     drawable: Drawable,
     text: String,
+    color: Int? = null,
     padding: Float = 20F,
     bounds: Float = 16F,
     drawablePadding: Float = 8F
 ) {
     this.text = text
+    color?.let {
+        this.setTextColor(ColorUtils.getColor(color))
+    }
     drawable.setBounds(0, 0, SizeUtils.dp2px(bounds), SizeUtils.dp2px(bounds))
     this.setPadding(SizeUtils.dp2px(padding), 0, SizeUtils.dp2px(padding), 0)
     this.setCompoundDrawables(null, null, drawable, null)

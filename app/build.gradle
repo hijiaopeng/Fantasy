@@ -20,7 +20,7 @@ android {
 
     signingConfigs {
         config {
-            storeFile file('/Users/jiaop/Documents/MaYe/Fantasy/app/fantasy.jks')
+            storeFile file('fantasy.jks')
             storePassword KEY_PASS
             keyAlias = ALIAS_NAME
             keyPassword ALIAS_PASS

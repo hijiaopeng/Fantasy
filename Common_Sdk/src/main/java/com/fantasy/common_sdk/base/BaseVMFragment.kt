@@ -17,6 +17,7 @@ import com.fantasy.common_sdk.ext.dismissLoadingExt
 import com.fantasy.common_sdk.ext.getAppViewModel
 import com.fantasy.common_sdk.ext.getVmClazz
 import com.fantasy.common_sdk.ext.showLoadingExt
+import com.gyf.immersionbar.ImmersionBar
 import com.gyf.immersionbar.ktx.immersionBar
 
 /**
@@ -58,7 +59,7 @@ abstract class BaseVMFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment()
         mViewBinding.root.findViewById<Toolbar>(R.id.public_toolbar)?.let {
             immersionBar {
                 titleBar(it)
-                statusBarDarkFont(true, 0.2f)
+                statusBarDarkFont(isDarkFont(), 0.2f)
                 navigationBarColor(R.color.transparent)
             }
         }
@@ -79,6 +80,11 @@ abstract class BaseVMFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment()
         registerUiChange()
         initData()
     }
+
+    /**
+     * 状态栏字体是否为黑色
+     */
+    open fun isDarkFont(): Boolean = true
 
     private fun registerUiChange() {
         mViewModel.loadingChange.showDialog.observe(this) {
